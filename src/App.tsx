@@ -1,22 +1,8 @@
-import { useGetMessagesQuery } from './api/messages';
+import Messages from './components/chat/Chat';
 import './App.css';
 
 function App() {
-  const { data: messages } = useGetMessagesQuery();
-
-  return (
-    <>
-      <p>Chat</p>
-      <div>
-        {messages?.map((message) => (
-          <div key={message._id}>
-            <p>{message.message}</p>
-            <p>{message.author}</p>
-          </div>
-        ))}
-      </div>
-    </>
-  );
+  return <Messages />;
 }
 
 export default App;
