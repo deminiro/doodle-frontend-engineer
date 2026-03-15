@@ -4,6 +4,7 @@ import { useCallback, useState, type SyntheticEvent } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import MessageForm from './MessageForm';
 import Messages from './Messages';
+import { POLLING_INTERVAL } from '../../constants/requests';
 
 const formInitialState = {
   message: '',
@@ -15,7 +16,9 @@ function Chat() {
     data: messages = [],
     isLoading: isMessagesLoading,
     refetch: refetchMessages,
-  } = useGetMessagesQuery();
+  } = useGetMessagesQuery(undefined, {
+    pollingInterval: POLLING_INTERVAL,
+  });
   const [sendMessage, { isLoading: isMessageSending }] = useCreateMessageMutation();
 
   const [message, setMessage] = useState(formInitialState.message);
