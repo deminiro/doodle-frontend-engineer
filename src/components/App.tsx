@@ -1,6 +1,6 @@
-import { Chat } from './components/chat';
+import { Chat } from './chat';
 import './App.css';
-import { useGetUser } from './hooks/useGetUser';
+import { useGetUser } from '../hooks/useGetUser';
 
 function App() {
   useGetUser();

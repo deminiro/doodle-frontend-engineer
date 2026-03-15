@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import MessageItem from './MessageItem';
 import type { Message } from '../../config/api/messages';
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../hooks/useActions';
 
 type Props = {
   messages: Message[];

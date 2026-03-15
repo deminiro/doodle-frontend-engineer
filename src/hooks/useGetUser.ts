@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useActions } from '../store/hooks';
+import { useActions } from './useActions';
 
 export const useGetUser = () => {
   const { setUserName } = useActions();

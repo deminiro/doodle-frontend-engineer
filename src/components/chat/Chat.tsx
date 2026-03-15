@@ -1,7 +1,7 @@
 import { useCreateMessageMutation, useGetMessagesQuery } from '../../config/api/messages';
 import './chat.css';
 import { useCallback, useState, type SyntheticEvent } from 'react';
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../hooks/useActions';
 import MessageForm from './MessageForm';
 import Messages from './Messages';
 import { POLLING_INTERVAL } from '../../constants/requests';
@@ -12,6 +12,7 @@ const formInitialState = {
 
 function Chat() {
   const userName = useAppSelector((state) => state.user.userName);
+
   const {
     data: messages = [],
     isLoading: isMessagesLoading,

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { messagesApi } from '../config/api/messages';
-import userReducer from '../config/slice/user';
+import { messagesApi } from '../api/messages';
+import userReducer from '../slice/user';
 
 export const store = configureStore({
   reducer: {
