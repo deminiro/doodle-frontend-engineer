@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import MessageItem from './MessageItem';
 import type { Message } from '../../config/api/messages';
 import { useAppSelector } from '../../store/hooks';
@@ -9,6 +10,13 @@ type Props = {
 
 function Messages({ messages, isMessagesLoading }: Props) {
   const { userName } = useAppSelector((state) => state.user);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isMessagesLoading) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, isMessagesLoading]);
 
   return (
     <div className="chat__messages">
@@ -17,6 +25,7 @@ function Messages({ messages, isMessagesLoading }: Props) {
         {messages?.map((message) => (
           <MessageItem key={message._id} data={message} currentUserName={userName} />
         ))}
+        <div ref={messagesEndRef} />
       </div>
     </div>
   );
