@@ -64,7 +64,7 @@
   color: var(--text);
 }
 
-.chat__message-datetime {
+.chat__message-date {
   font-size: 14px;
   color: var(--text-secondary);
 }
