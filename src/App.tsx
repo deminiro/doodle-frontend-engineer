@@ -1,8 +1,11 @@
-import Messages from './components/chat/Chat';
+import { Chat } from './components/chat';
 import './App.css';
+import { useGetUser } from './hooks/useGetUser';
 
 function App() {
-  return <Messages />;
+  useGetUser();
+
+  return <Chat />;
 }
 
 export default App;

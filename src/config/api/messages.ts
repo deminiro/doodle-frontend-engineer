@@ -7,6 +7,11 @@ export type Message = {
   message: string;
 };
 
+export type CreateMessagePayload = {
+  author: string;
+  message: string;
+};
+
 export const messagesApi = createApi({
   reducerPath: 'messagesApi',
   baseQuery: fetchBaseQuery({
@@ -20,7 +25,14 @@ export const messagesApi = createApi({
     getMessages: builder.query<Message[], void>({
       query: () => '/api/v1/messages',
     }),
+    createMessage: builder.mutation<Message, CreateMessagePayload>({
+      query: (body) => ({
+        url: '/api/v1/messages',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useGetMessagesQuery } = messagesApi;
+export const { useGetMessagesQuery, useCreateMessageMutation } = messagesApi;
